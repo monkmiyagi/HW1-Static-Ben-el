@@ -1,0 +1,62 @@
+#include<iostream>
+#include<iomanip> // For "setprecision"
+using namespace std;
+
+//HW1_315793737_Q1
+
+/*
+Constants
+
+Legend -
+ADDSONG = The price for adding a song to the show.
+ADDDANCER = The price for adding a dancer to the show.
+*/
+const float ADDSONG = 2738.87;
+const int ADDDANCER = 400;
+
+int main()
+{
+	/* 
+	Variables
+
+	Legend -
+	showCost = How much does the show costs. Constant of 50,000
+	noGain = Option for a show with no gain purposes
+	*/
+
+	double showCost = 50000;
+	int songs, dancers, day, noGain;
+
+	// User enters variables
+	cout << "The Static & Ben'el Show \n";
+	cout << "Please enter number of songs \n";
+	cin >> songs;
+	cout << "Please enter number of dancers \n";
+	cin >> dancers;
+	cout << "Which day of the week the shows gonna be? (1-7) \n";
+	cin >> day;
+	cout << "Is the show for profit purposes? 0 - No, 1 - Yes \n";
+	cin >> noGain;
+
+	// Calculations
+
+	showCost += (float)songs * ADDSONG;
+	showCost += dancers * ADDDANCER;
+
+	if (day >= 5 && day < 8)
+	{
+		showCost += showCost * 0.09;
+	}//end of if
+	if (noGain == 0)
+	{
+		showCost -= showCost * 0.10;
+	}//end of if
+
+	// Cost
+
+	cout << setprecision(2) << fixed;
+	cout << "Your show cost is \n" << showcost;
+	
+	system("pause>NULL");
+
+}//end of main
